@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  odoo:
+    container_name: odoo-modatex-staging
+    build:
+      context: ./odoo
+      dockerfile: Dockerfile
+    ports:
+      - "8070:8069"
+    env_file: ./odoo/.env
+    volumes:
+      - ./odoo/odoo.conf:/etc/odoo/odoo.conf
+      - ./odoo/custom-addons:/mnt/extra-addons
+      - odoo_data:/mnt/data-dir
+    depends_on:
+      - db
+    networks:
+      - modatex
+
+  db:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    env_file: ./postgres/.env
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres/data-dir:/var/lib/postgresql/data
+    networks:
+      - modatex
+
+volumes:
+  odoo_data: 
+
+networks:
+  modatex:
+    driver: bridge

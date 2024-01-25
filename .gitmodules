@@ -1,0 +1,6 @@
+[submodule "odoo/custom-addons/jorels-odoo-addons"]
+	path = odoo/custom-addons/jorels-odoo-addons
+	url = https://github.com/Jorels-Community/jorels-odoo-addons.git
+[submodule "odoo/custom-addons/proactivodigital/invoice_template"]
+	path = odoo/custom-addons/proactivodigital/invoice_template
+	url = https://github.com/proactivodigital/invoice_template.git
