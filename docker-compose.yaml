@@ -19,6 +19,7 @@ services:
       - modatex
 
   db:
+    container_name: db-modatex-staging
     build:
       context: ./postgres
       dockerfile: Dockerfile
