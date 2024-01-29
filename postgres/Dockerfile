@@ -2,7 +2,7 @@
 FROM postgres:latest
 
 # Copia tu archivo de configuración personalizado
-COPY ./postgres/postgresql.conf /etc/postgresql/postgresql.conf
+COPY postgresql.conf /etc/postgresql/postgresql.conf
 
 # Exponer el puerto 5433
 EXPOSE 5433
